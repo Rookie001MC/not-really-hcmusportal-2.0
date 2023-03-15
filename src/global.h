@@ -1,47 +1,38 @@
 #include <iostream>
 #include <string>
+#include "struct_definitions/Enums.h"
+#include "struct_definitions/User.h"
 
-enum Gender
+struct Class
 {
-    MALE    = 0,
-    FEMALE  = 1,
-    NOT_SAY = 2
+    unsigned int id;
+    std::string name;
+    std::string code;
+    std::string enter_year;
+    LLNode *student_list;
 };
 
-// Student records
-struct User
+struct Course
 {
-    unsigned int id;  // this will also be the Student/Admin ID
-    std::string first_name;
-    std::string last_name;
-    Date date_of_birth;
-    Gender gender;
-    unsigned int social_id;
-
-    // Login details 
-    std::string username;
-    std::string password;
+    unsigned int id;
+    std::string name;
+    std::string code;
+    std::string teacher_name;
+    unsigned int credits;
+    unsigned int max_students     = 50;
+    unsigned int current_students = 0;
+    // A course can only have so much students, so it's better to use an array here instead
+    unsigned int *student_list = new unsigned int[max_students];
 };
 
-// Struct Student extending User
-struct Student 
+struct SchoolYear
 {
-    User user;
-    std::string major;
-    std::string degree;
-    float gpa;
+    std::string school_year;
+    LLNode *class_list
 };
 
-// struct Admin extending User
-struct Admin
+struct LLNode
 {
-    User user;
-    std::string department;
-};
-
-struct Date
-{
-    unsigned int day;
-    unsigned int month;
-    unsigned int year;
+    unsigned int id;
+    LLNode *next;
 };
