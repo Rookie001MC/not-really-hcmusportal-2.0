@@ -13,7 +13,8 @@
   - [`functions.cpp`](./src/functions.cpp) là file chứa các hàm lớn, có liên quan đến flow của app.
   - [`main.cpp`](./src/main.cpp) là file chứa hàm `main()`.
    - [`global.h`](./src/global.h) là file header chứa các include file header ngoài và khai báo các hàm.
-   - Folder này sẽ chứa toàn bộ các file của dự án của từng thành viên.
+   - [`struct_definitions`](./src/struct_definitions/) là các file header chứa các `Struct` của chương trình.
+   - [`functions`](./src/functions/) là các file chứa các hàm mà mỗi thành viên sẽ viết.
 ### Quy tắc code dự án
 
 - Mỗi chức năng cần code ra 1 file riêng, bỏ vào một folder riêng, hạn chế code thẳng lên file `main.cpp`.
