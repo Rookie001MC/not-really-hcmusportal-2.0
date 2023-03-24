@@ -3,7 +3,7 @@
 class StateMachine 
 {
 private:
-	List* _head = nullptr;
+	List* _head ;
 	State* _newState;
 	bool _replace;
 	bool _add;

@@ -1,5 +1,5 @@
 #include "StateMachine.h"
-StateMachine::StateMachine() : _add(0), _replace(0), _remove(0)
+StateMachine::StateMachine() : _add(0), _replace(0), _remove(0), _head(nullptr)
 {
 
 }
@@ -19,14 +19,14 @@ void StateMachine::RemoveState()
 }
 void StateMachine::ProcessStateChange()
 {
-	if (_remove && !_head)
+	if (_remove && _head != nullptr)
 	{
 		pop_front(_head);
 		_remove = 0;
 	}
 	if (_add)
 	{
-		if (!_head)
+		if (_head != nullptr)
 		{
 			if (_replace)
 			{

@@ -1,5 +1,5 @@
 #include "SplashScreen.h"
-#include "SplashScreen.h"
+#include<iostream>
 #include"LoginForm.h"
 
 SplashScreen::SplashScreen(Data* data) : _data(data), _loginfocus(0), _registerfocus(0),
@@ -46,16 +46,17 @@ void SplashScreen::ProcessInput()
 		{
 			_data->_window->close();
 		}
-		else if (event.type == sf::Event::MouseMoved)
+		if (event.type == sf::Event::MouseMoved)
 		{
 			_loginfocus = (_loginbutton.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*_data->_window).x, sf::Mouse::getPosition(*_data->_window).y)) ? 1 : 0);
 			_registerfocus = (_registerbutton.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*_data->_window).x, sf::Mouse::getPosition(*_data->_window).y)) ? 1 : 0);
 		}
-		else if (event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			_loginselected = (_loginfocus ? 1 : 0);
 			_registerselected = (_registerfocus ? 1 : 0);
 		}
+		
 	}
 
 }
@@ -66,6 +67,7 @@ void SplashScreen::Update()
 	if (_loginselected)
 	{
 		_data->_states->AddState(new LoginForm(_data));
+		_loginselected = 0;
 	}
 }
 void SplashScreen::Draw()
@@ -75,6 +77,5 @@ void SplashScreen::Draw()
 	_data->_window->draw(_loginbutton);
 	_data->_window->draw(_registerbutton);
 	_data->_window->display();
-
 
 }

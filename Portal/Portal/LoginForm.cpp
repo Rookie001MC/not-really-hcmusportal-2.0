@@ -1,5 +1,7 @@
 #include "LoginForm.h"
-LoginForm::LoginForm(Data* data) : _data(data), _usernamefocus(0), _passwordfocus(0), _blink(1)
+
+LoginForm::LoginForm(Data *data): _data(data), _usernamefocus(0), _passwordfocus(0), _blink(1), _exitfocus(0),
+	_submitfocus(0) , _exitselected(0) , _submitselected(0)
 {
 
 }
@@ -78,14 +80,22 @@ void LoginForm::ProcessInput()
 	while (_data->_window->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
+		{
 			_data->_window->close();
-
+		}
+		if (event.type == sf::Event::MouseMoved)
+		{
+			_exitfocus = (_exitbutton.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*_data->_window).x, sf::Mouse::getPosition(*_data->_window).y)) ? 1 : 0);
+			_submitfocus = (_submitbutton.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*_data->_window).x, sf::Mouse::getPosition(*_data->_window).y)) ? 1 : 0);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			_usernamefocus = (_usernamebox.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*_data->_window).x, sf::Mouse::getPosition(*_data->_window).y)) ? 1 : 0);
 			_passwordfocus = (_passwordbox.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(*_data->_window).x, sf::Mouse::getPosition(*_data->_window).y)) ? 1 : 0);
+			_exitselected = (_exitfocus ? 1 : 0);
 			_blink = 1;
 		}
+		
 		if (event.type == sf::Event::TextEntered)
 		{
 			if (event.text.unicode < 128)
@@ -138,6 +148,12 @@ void LoginForm::Update()
 	}
 	_showusername.setString(_getusername + ((_blink && _usernamefocus) ? "|" : ""));
 	_showpassword.setString(showpassword + ((_blink && _passwordfocus) ? "|" : ""));
+	(_exitfocus ? _exitbutton.setFillColor(sf::Color::Yellow) : _exitbutton.setFillColor(sf::Color::Black));
+	(_submitfocus ? _submitbutton.setFillColor(sf::Color::Yellow) : _submitbutton.setFillColor(sf::Color::Red));
+	if (_exitselected)
+	{
+		_data->_states->RemoveState();
+	}
 }
 void LoginForm::Draw()
 {

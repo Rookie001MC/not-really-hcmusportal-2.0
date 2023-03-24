@@ -23,6 +23,10 @@ private:
 	bool _usernamefocus;
 	bool _passwordfocus;
 	bool _blink;
+    bool _exitfocus;
+    bool _submitfocus;
+	bool _exitselected;
+	bool _submitselected;
 
 
 
