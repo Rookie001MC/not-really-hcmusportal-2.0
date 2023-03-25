@@ -31,6 +31,7 @@ void viewListOfCourse(Course* course ,int numCourse)     // View a list of cours
 
 void viewStudentsInCourse(Course* a)
 {
+    int i = 0;
     std::cout << "Number of students registered: " << a.current_students << " / " << a.max_students
          << '\n';
     while (a->student_list)

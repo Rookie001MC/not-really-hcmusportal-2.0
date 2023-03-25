@@ -5,6 +5,7 @@
 #include "struct_definitions/Enums.h"
 #include "struct_definitions/LinkedListNode.h"
 #include "struct_definitions/User.h"
+#include "struct_definitions/Student.h"
 
 struct SchoolYear
 {
