@@ -9,5 +9,5 @@
 struct SchoolYear
 {
     std::string school_year;
-    LLNode *class_list;
+    Class *class_list;
 };

@@ -1,4 +1,5 @@
 #include <string>
+#include "Student.h"
 struct Class
 {
     unsigned int id;
@@ -7,5 +8,6 @@ struct Class
     std::string enter_year;
     unsigned int max_students     = 50;
     unsigned int current_students = 0;
-    LLNode *student_list;
+    Class *classNext              = nullptr;
+    Student *studentList          = nullptr;
 };
