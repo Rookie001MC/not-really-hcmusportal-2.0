@@ -1,5 +1,5 @@
-#include "Enums.h"
-#include "Misc.h"
+
+#include "struct.h"
 #include <string>
 // Student records
 struct User
