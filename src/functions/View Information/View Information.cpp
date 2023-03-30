@@ -37,16 +37,60 @@ void viewListOfClasses(SchoolYear school_year)  // view all the classes in a sch
     fin.close();
 }
 
-void viewStudentsInClass(Class* a)             // view all the students in class. 
+void viewStudentsInClass(const std::string& filename)           // view all the students in class. 
 {   
-    std::cout << "Number of students in the class: " << a->current_students << endl;
-    int i = 0;
-    while (a->studentList != nullptr)
-    {
-        std::cout << i + 1 << " - " << a->studentList->ID << " - " << a->studentList->name << ".\n";
-        i++;
-        a->studentList = a->studentList->studentNext;
-    }
+	Student* students = new Student[MAX];
+	std::ifstream file(filename + ".txt");
+	int cnt = 0;
+	if (file.is_open())
+	{
+		int i = 0;
+		std::string line;
+		std::getline(file, line);
+		while (std::getline(file, line))
+		{
+			std::stringstream ss(line);
+			std::string token;
+
+			Student stu;
+
+			std::getline(ss, token, ',');
+
+			std::getline(ss, token, ',');
+			stu.id = token;
+
+			std::getline(ss, token, ',');
+			stu.first_name = token;
+
+			std::getline(ss, token, ',');
+			stu.last_name = token;
+
+			std::getline(ss, token, ',');
+			stu.gender = token;
+
+			std::getline(ss, token, ',');
+			stu.dob = token;
+
+			std::getline(ss, token);
+			stu.social_id = token;
+
+			students[i] = stu;
+			i++;
+		}
+		cnt = i;
+		file.close();
+	}
+	else
+	{
+		std::cerr << "Unable to open file" << std::endl;
+	}
+
+	for (int j = 0; j < cnt; ++j)
+	{
+		std::cout << j + 1 << "/ " << students[j].id << " - " << students[j].last_name
+			<< " " << students[j].first_name << " - " << students[j].gender << " - " <<
+			students[j].dob << " - " << students[j].social_id << ". \n";
+	}
 }
 
 void viewListOfCourse(Course* course ,int numCourse)     // View a list of courses.
