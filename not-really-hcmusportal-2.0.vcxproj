@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="src\functions.cpp" />
     <ClCompile Include="src\functions\FileIO\FileRead.cpp" />
     <ClCompile Include="src\functions\Login\Login.cpp" />
@@ -139,6 +140,7 @@
     <None Include="visualisations\Users.drawio" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="src\functions\FileIO\FileIO.h" />
     <ClInclude Include="src\functions\Login\Login.h" />
     <ClInclude Include="src\struct_definitions\Enums.h" />
