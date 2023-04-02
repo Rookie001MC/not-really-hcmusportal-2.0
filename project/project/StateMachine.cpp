@@ -3,10 +3,6 @@ StateMachine::StateMachine() : _add(0), _replace(0), _remove(0), _head(nullptr)
 {
 
 }
-StateMachine::~StateMachine()
-{
-
-}
 void StateMachine::AddState(State* state, bool replace)
 {
 	_add = 1;
@@ -22,6 +18,7 @@ void StateMachine::ProcessStateChange()
 	if (_remove && _head != nullptr)
 	{
 		pop_front(_head);
+		_head->_state->Init();
 		_remove = 0;
 	}
 	if (_add)
@@ -37,6 +34,7 @@ void StateMachine::ProcessStateChange()
 		_head->_state->Init();
 		_add = 0;
 	}
+
 }
 State*& StateMachine::GetCurrentState()
 {
