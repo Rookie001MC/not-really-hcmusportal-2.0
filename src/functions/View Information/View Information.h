@@ -17,7 +17,7 @@ struct Student {
 bool checkValidFileName(std::string name_of_file, std::string directory, std::string name);
 
 void viewListOfClasses(SchoolYear school_year);
-void viewStudentsInClass(const std::string& filename);
+void viewStudentsInClass(const std::string& filename, int& cnt);
 void viewListOfCourse(Course* head);
-void viewStudentsInCourse(const std::string& filename);
-void viewScoreBoardOfCourse(std::string course_name);
+void viewStudentsInCourse(const std::string& filename, int& cnt);
+void viewScoreBoardOfCourse(std::string course_name, int& cnt);
