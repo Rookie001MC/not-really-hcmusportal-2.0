@@ -13,6 +13,14 @@ struct Student {
 	std::string social_id;
 };
 
+struct StudentScore {
+	std::string id;
+	std::string full_name;
+	float total_mark;
+	float final_mark;
+	float midterm_mark;
+	float other_mark;
+};
 
 bool checkValidFileName(std::string name_of_file, std::string directory, std::string name);
 

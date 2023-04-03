@@ -229,11 +229,6 @@ void viewStudentsInCourse(const std::string &filename, int& cnt)  // view studen
 
 void viewScoreBoardOfCourse(std::string course_name, int& cnt)
 {
-    std::string course_name;
-    std::cout << "Enter course name: ";
-    std::getline(std::cin, course_name, '\n');
-
-
     while (!checkValidFileName("course", "txt", course_name))
     {
         std::cout << "Unvalid course's name! \n";
@@ -286,13 +281,15 @@ void viewScoreBoardOfCourse(std::string course_name, int& cnt)
     }
     else
     {
-        std::cerr << "Unable to open file" << std::endl;
+        std::cout << "Unable to open file" << std::endl;
+        return;
     }
 
     std::cout << std::setw(3) << "No " << std::setw(3) << "ID" << std::setw(15)
         << "Name" << std::setw(25) << "Total Mark" << std::setw(15)
         << "Final Mark" << std::setw(15) << "Midterm Mark" << std::setw(15)
         << "Other Mark" << std::endl;
+
     for (int j = 0; j < cnt; ++j)
     {
         std::cout << std::left << std::setw(4) << j + 1 << std::setw(13) << students[j].id << std::setw(15)
