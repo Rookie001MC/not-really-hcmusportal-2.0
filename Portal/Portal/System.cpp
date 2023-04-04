@@ -4,7 +4,7 @@
 System::System() : _data(new Data) 
 {
 	_data->_window->create(sf::VideoMode(1600, 900), "Portal", sf::Style::Close);
-	_data->_states->AddState(new Staff(_data));
+	_data->_states->AddState(new SplashScreen(_data));
 	Run();
 
 }
