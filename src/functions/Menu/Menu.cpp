@@ -1,48 +1,79 @@
 #include "Menu.h"
-void Menu(string username)
+
+void MainMenu(std::string &username)
 {
-	int choice;
-	if (username.find("staff"))
-	{
-		
-		
-		do {
-			cout << "1.Class Management" << endl << "2.Course Management" << endl << "Enter your choice : ";
-			cin >> choice; 
-			if (choice == 1)
-			{
+    int choice;
 
-			}
-			if (choice == 2)
-			{
+    User currentUserProfile;
+    GetProfile(username, currentUserProfile);
 
-			}
-			else {
-				cout << "Invalid input";
-			}
-			system("cls");
-		} while (choice != 1 && choice != 2);
-		
-	}
-	else
-	{
-		do {
-			cout << "1.View course" << endl << "2.Scoreboard" << endl << "Enter your choice : ";
-			cin >> choice;
-			if (choice == 1)
-			{
-
-			}
-			if (choice == 2)
-			{
-
-			}
-			else {
-				cout << "Invalid input";
-			}
-			system("cls");
-		} while (choice != 1 && choice != 2);
-	}
-
-
+    if (currentUserProfile.is_staff == true)
+    {
+        do
+        {
+            std::cout << "1. Account settings" << std::endl
+                      << "2. School year management" << std::endl
+                      << "3. Class Management" << std::endl
+                      << "4. Course Management" << std::endl
+                      << "0. Exit" << std::endl
+                      << "Enter your choice: ";
+            std::cin >> choice;
+            if (choice == 1)
+            {
+                AccountMenu(username, currentUserProfile);
+                return;
+            }
+            else if (choice == 2)
+            {
+                SchoolYearMenu();
+            }
+            else if (choice == 3)
+            {
+                ClassManagementMenu();
+            }
+            else if (choice == 4)
+            {}
+            else if (choice == 0)
+            {
+                exit(0);
+            }
+            else
+            {
+                std::cout << "Invalid input\n";
+            }
+            wait_for_enter();
+            clear_screen();
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 0);
+    }
+    else
+    {
+        do
+        {
+            std::cout << "1. Account settings" << std::endl
+                      << "2. View course" << std::endl
+                      << "3. Scoreboard" << std::endl
+                      << "0. Exit" << std::endl
+                      << "Enter your choice: ";
+            std::cin >> choice;
+            if (choice == 1)
+            {
+                AccountMenu(username, currentUserProfile);
+                return;
+            }
+            else if (choice == 2)
+            {}
+            else if (choice == 3)
+            {}
+            else if (choice == 0)
+            {
+                exit(0);
+            }
+            else
+            {
+                std::cout << "Invalid input\n";
+            }
+            wait_for_enter();
+            clear_screen();
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 0);
+    }
 }
