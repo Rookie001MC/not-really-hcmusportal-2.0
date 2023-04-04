@@ -32,3 +32,4 @@ sf::Font& AssetManager::GetFont(int id)
 {
 	return _fonts[id];
 }
+

@@ -172,6 +172,10 @@ void LoginForm::Update()
 				std::ofstream file("username.txt");
 				file << _getusername;
 			}
+			else
+			{
+				// add student state
+			}
 		}
 		else
 		{
