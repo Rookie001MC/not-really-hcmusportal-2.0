@@ -13,8 +13,10 @@ SplashScreen::~SplashScreen()
 }
 void SplashScreen::Init()
 {
-	_data->_assets->AddTexture(HCMUS, "Asset\\hcmus.png");
-	_data->_assets->AddFont(LIGHT , "Asset\\Light.ttf");
+	_data->_assets->AddTexture(HCMUS, "Asset\\hcmus-background.png");
+	_data->_assets->AddFont(LIGHT, "Asset\\Light.ttf");
+	_data->_assets->AddTexture(LOGO_HCMUS, "Asset\\logo-khtn.png");
+	_data->_assets->AddFont(HELVETICA_BOLD, "Asset\\Helvetica-Bold.ttf");
 
 	_logo.setTexture(_data->_assets->GetTexture(HCMUS));
 	_logo.setOrigin(_logo.getLocalBounds().width / 2, _logo.getLocalBounds().height / 2);
