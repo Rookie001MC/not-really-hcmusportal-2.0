@@ -15,7 +15,7 @@ void ClassView::Init()
 	memset(_idfocus, 0, 100);
 	memset(_idselected, 0, 100);
 	cur = 0; 
-	_title.setFont(_data->_assets->GetFont(LIGHT));
+	_title.setFont(_data->_assets->GetFont(KANIT));
 	_title.setString("No      StudentID          FirstName             Lastname             Gender               Date of Birth                SocialID");
 	_title.setFillColor(sf::Color::Red);
 	std::string _getbuffer1;
