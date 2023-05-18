@@ -1,3 +1,4 @@
-General Physics2(PH251)
-Introduction to CS2(CS162)
-Introduction to laws(BAA00004)
+Introduction to CS(CS162)
+General Physics II(PH212)
+The Duc 1(BAA00021)
+Calculus II(MTH252)
