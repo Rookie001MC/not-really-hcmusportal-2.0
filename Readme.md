@@ -1,2 +1,2 @@
-﻿# CS162 Project - HCMUS Portal
+# CS162 Project - HCMUS Portal
 
